@@ -17,6 +17,7 @@ class CreateFollowsTable extends Migration
             $table->primary(['user_id', 'following_user_id']);
             $table->foreignId('user_id');
             $table->foreignId('following_user_id');
+            $table->timestamps();
 
             $table->foreign('user_id')
                 ->references('id')

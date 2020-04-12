@@ -42,9 +42,18 @@ class User extends Authenticatable
         return "https://i.pravatar.cc/40?u=".$this->email;
     }
 
+    public function chirps()
+    {
+        return $this->hasMany(Chirp::class);
+    }
+
     public function timeline()
     {
-        return Chirp::where('user_id', $this->id)->latest()->get();
+        $following = $this->follows()->pluck('id');
+
+        return Chirp::whereIn('user_id', $following)
+            ->orWhere('user_id', $this->id)
+            ->latest()->get();
     }
 
     public function follow(User $user)
