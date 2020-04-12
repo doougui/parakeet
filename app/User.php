@@ -36,4 +36,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatarAttribute()
+    {
+        return "https://i.pravatar.cc/40?u=".$this->email;
+    }
+
+    public function timeline()
+    {
+        return Chirp::where('user_id', $this->id)->latest()->get();
+    }
+
+    public function follow(User $user)
+    {
+        $this->follows()->save($user);
+    }
+
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    }
 }
