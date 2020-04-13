@@ -23,3 +23,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/chirps', 'ChirpsController@index')->name('home');
     Route::post('/chirps', 'ChirpsController@store')->name('chirps.store');
 });
+
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profiles.show');

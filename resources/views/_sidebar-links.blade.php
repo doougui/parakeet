@@ -27,6 +27,16 @@
             class="font-bold text-lg mb-4 block"
             href="#"
         >Profile</a></li>
+    <li>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button
+                type="submit"
+                class="font-bold text-lg mb-4 block"
+                href="#"
+            >Logout</button>
+        </form>
+    </li>
     <li><a
             class="font-bold text-lg block"
             href="#"
