@@ -1,6 +1,6 @@
-<div class="flex p-4 border-b border-b-gray-400">
+<div class="flex p-4 {{ $loop->last ? '' : 'border-b border-b-gray-400' }}">
     <div class="mr-2 flex-shrink-0">
-        <a href="{{ route('profile', $chirp->user) }}">
+        <a href="{{ $chirp->user->path() }}">
             <img
                 src="{{ $chirp->user->avatar }}"
                 alt="John Doe"
@@ -13,7 +13,9 @@
 
     <div>
         <h5 class="font-bold mb-4">
-            <a href="{{ route('profile', $chirp->user) }}">{{ $chirp->user->name }}</a>
+            <a href="{{ $chirp->user->path() }}">
+                {{ $chirp->user->name }}
+            </a>
         </h5>
 
         <p class="text-sm">

@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -44,7 +44,8 @@ class User extends Authenticatable
 
     public function chirps()
     {
-        return $this->hasMany(Chirp::class);
+        return $this->hasMany(Chirp::class)
+            ->latest();
     }
 
     public function timeline()
@@ -56,13 +57,8 @@ class User extends Authenticatable
             ->latest()->get();
     }
 
-    public function follow(User $user)
+    public function path()
     {
-        $this->follows()->save($user);
-    }
-
-    public function follows()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+        return route('profile', $this->username);
     }
 }
