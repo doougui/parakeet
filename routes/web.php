@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('home');
+    });
+
     Route::get('/chirps', 'ChirpsController@index')->name('home');
     Route::post('/chirps', 'ChirpsController@store')->name('chirps.store');
 });
 
-Route::get('/profiles/{user}', 'ProfilesController@show')->name('profiles.show');
+Route::get('/profiles/{user:username}', 'ProfilesController@show')->name('profile');

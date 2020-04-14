@@ -1,44 +1,88 @@
 <ul>
-    <li><a
+    <li>
+        <a
             class="font-bold text-lg mb-4 block"
-            href="/"
-        >Home</a></li>
-    <li><a
+            href="{{ route('home') }}"
+        >
+            Home
+        </a>
+    </li>
+
+    <li>
+        <a
             class="font-bold text-lg mb-4 block"
             href="/explore"
-        >Explore</a></li>
-    <li><a
-            class="font-bold text-lg mb-4 block"
-            href="#"
-        >Notifications</a></li>
-    <li><a
-            class="font-bold text-lg mb-4 block"
-            href="#"
-        >Messages</a></li>
-    <li><a
-            class="font-bold text-lg mb-4 block"
-            href="#"
-        >Bookmarks</a></li>
-    <li><a
-            class="font-bold text-lg mb-4 block"
-            href="#"
-        >Lists</a></li>
-    <li><a
-            class="font-bold text-lg mb-4 block"
-            href="#"
-        >Profile</a></li>
-    <li>
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button
-                type="submit"
-                class="font-bold text-lg mb-4 block"
-                href="#"
-            >Logout</button>
-        </form>
+        >
+            Explore
+        </a>
     </li>
-    <li><a
+
+    <li>
+        <a
+            class="font-bold text-lg mb-4 block"
+            href="#"
+        >
+            Notifications
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="font-bold text-lg mb-4 block"
+            href="#"
+        >
+            Messages
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="font-bold text-lg mb-4 block"
+            href="#"
+        >
+            Bookmarks
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="font-bold text-lg mb-4 block"
+            href="#"
+        >
+            Lists
+        </a>
+    </li>
+
+    @auth
+        <li>
+            <a
+                class="font-bold text-lg mb-4 block"
+                href="{{ route('profile', auth()->user()) }}"
+            >
+                Profile
+            </a>
+        </li>
+
+        <li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <button
+                    type="submit"
+                    class="font-bold text-lg mb-4 block"
+                >
+                    Logout
+                </button>
+            </form>
+        </li>
+    @endauth
+
+    <li>
+        <a
             class="font-bold text-lg block"
             href="#"
-        >More</a></li>
+        >
+            More
+        </a>
+    </li>
 </ul>
