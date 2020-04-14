@@ -15,7 +15,7 @@
 
         <footer class="flex justify-between">
             <img
-                src="{{ auth()->user()->avatar }}"
+                src="{{ currentUser()->avatar }}"
                 alt="This is you"
                 class="rounded-full mr-2"
                 width="40"

@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/chirps', 'ChirpsController@store')->name('chirps.store');
 
     Route::post('/follow/{user:username}', 'FollowsController@store')->name('follow');
+
+    Route::get('/profile/edit', 'ProfilesController@edit')->name('profile.edit');
 });
 
-Route::get('/profiles/{user:username}', 'ProfilesController@show')->name('profile');
+Route::get('/{user:username}', 'ProfilesController@show')->name('profile');

@@ -3,11 +3,7 @@
         <div class="relative">
             <img
                 src="{{ asset('images/banner.jpg') }}"
-                alt="{{
-                substr($user->username, -1) == 's'
-                ? "{$user->username}'"
-                : "{$user->username}'s"
-            }} banner"
+                alt="{{ "{$user->username}'s" }} banner"
                 class="mb-2"
             >
 
@@ -28,14 +24,14 @@
             </div>
 
             <div>
-                @if(auth()->check() && auth()->user()->username == $user->username)
-                    <a href=""
+                @can('edit', $user)
+                    <a href="{{ route('profile.edit') }}"
                        class="rounded-full border border-gray-500 py-2 px-6 text-sm">
                         Edit Profile
                     </a>
-                @else
-                    <x-follow-button :user="$user"></x-follow-button>
-                @endif
+                @endcan
+
+                <x-follow-button :user="$user"></x-follow-button>
             </div>
         </div>
 

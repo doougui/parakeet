@@ -11,4 +11,9 @@ class ProfilesController extends Controller
     {
         return view('profiles.show', compact('user'));
     }
+
+    public function edit()
+    {
+        return view('profiles.edit', ['user' => currentUser()]);
+    }
 }
