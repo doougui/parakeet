@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('components.app')
 
 @section('content')
     <header class="mb-6 relative">

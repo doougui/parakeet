@@ -1,7 +1,7 @@
-@extends('layouts.app')
+<x-app>
+    <div>
+        @include('_publish-chirp-panel')
 
-@section('content')
-    @include('_publish-chirp-panel')
-
-    @include('_timeline')
-@endsection
+        @include('_timeline')
+    </div>
+</x-app>

@@ -53,29 +53,27 @@
         </a>
     </li>
 
-    @auth
-        <li>
-            <a
+    <li>
+        <a
+            class="font-bold text-lg mb-4 block"
+            href="{{ route('profile', auth()->user()) }}"
+        >
+            Profile
+        </a>
+    </li>
+
+    <li>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <button
+                type="submit"
                 class="font-bold text-lg mb-4 block"
-                href="{{ route('profile', auth()->user()) }}"
             >
-                Profile
-            </a>
-        </li>
-
-        <li>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <button
-                    type="submit"
-                    class="font-bold text-lg mb-4 block"
-                >
-                    Logout
-                </button>
-            </form>
-        </li>
-    @endauth
+                Logout
+            </button>
+        </form>
+    </li>
 
     <li>
         <a
