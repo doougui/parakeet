@@ -23,12 +23,14 @@
     <div id="app">
         <section class="px-8 py-4">
             <header class="container mx-auto">
-                <h1>
-                    <img
-                        src="{{ asset('images/logo.svg') }}"
-                        alt="Parakeet"
-                    >
-                </h1>
+                <a href="{{ route('home') }}">
+                    <h1>
+                        <img
+                            src="{{ asset('images/logo.svg') }}"
+                            alt="Parakeet"
+                        >
+                    </h1>
+                </a>
             </header>
         </section>
 

@@ -1,5 +1,7 @@
 <div class="border border-gray-300 rounded-xl">
-    @foreach($chirps as $chirp)
+    @forelse($chirps as $chirp)
         @include('_chirp')
-    @endforeach
+    @empty
+        <p class="p-4 text-center text-gray-500">No chirps yet.</p>
+    @endforelse
 </div>
