@@ -38,7 +38,7 @@
                 <img src="{{ $user->avatar }}" alt="Your avatar" width="40">
             </div>
 
-            @error('name')
+            @error('avatar')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>

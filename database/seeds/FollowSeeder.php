@@ -13,6 +13,7 @@ class FollowSeeder extends Seeder
     public function run()
     {
         $primaryUser = User::find(1);
+
         $firstFollow = User::find(2);
         $secondFollow = User::find(3);
 
