@@ -1,5 +1,5 @@
 @cannot('edit', $user)
-    <form method="POST" action="{{ route('follow', ['user' => $user]) }}">
+    <form method="POST" action="{{ route('follow', $user) }}">
         @csrf
 
         <button class="bg-green-500 rounded-full shadow py-2 px-6 text-white text-sm">

@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-        return asset($value);
+        return asset($value ?: '/images/avatar.jpg');
     }
 
     public function chirps()
