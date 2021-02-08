@@ -32,7 +32,6 @@
                        type="file"
                        name="avatar"
                        id="avatar"
-                       required
                 >
 
                 <img src="{{ $user->avatar }}" alt="Your avatar" width="40">

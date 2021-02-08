@@ -22,13 +22,15 @@ class ProfilesController extends Controller
     {
         $validated = request()->validate([
             'name' => ['string', 'required', 'max:255'],
-            'avatar' => ['required', 'file'],
+            'avatar' => ['file'],
             'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
             'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore($user)],
             'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed']
         ]);
 
-        $validated['avatar'] = request('avatar')->store('avatars');
+        if (request('avatar')) {
+            $validated['avatar'] = request('avatar')->store('avatars');
+        }
 
         $user->update($validated);
 
