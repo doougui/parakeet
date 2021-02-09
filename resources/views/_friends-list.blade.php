@@ -1,4 +1,4 @@
-<div class="bg-green-100 rounded-xl p-4">
+<div class="bg-green-100 border-gray-400 rounded-xl p-4">
     <h3 class="font-bold text-xl mb-4">Following</h3>
 
     <ul>
