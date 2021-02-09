@@ -2,6 +2,8 @@
     <div>
         @include('_publish-chirp-panel')
 
-        @include('_timeline')
+        @include('_timeline', [
+            'chirps' => $chirps
+        ])
     </div>
 </x-app>

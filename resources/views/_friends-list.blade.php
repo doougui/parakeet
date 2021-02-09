@@ -1,10 +1,10 @@
-<div class="bg-green-100 border-gray-400 rounded-xl p-4">
+<div class="bg-green-200 border-gray-400 rounded-xl p-4">
     <h3 class="font-bold text-xl mb-4">Following</h3>
 
     <ul>
         @auth
             @forelse(currentUser()->follows as $user)
-                <li class="mb-4">
+                <li class="{{ $loop->last ? '' : 'mb-4' }}">
                     <div>
                         <a href="{{ route('profile', $user) }}" class="flex items-center text-sm">
                             <img

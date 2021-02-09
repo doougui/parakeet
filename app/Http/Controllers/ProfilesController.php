@@ -10,7 +10,10 @@ class ProfilesController extends Controller
 {
     public function show(User $user)
     {
-        return view('profiles.show', compact('user'));
+        return view('profiles.show', [
+            'user' => $user,
+            'chirps' => $user->chirps()->paginate(5),
+        ]);
     }
 
     public function edit()

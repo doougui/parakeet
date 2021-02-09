@@ -8,12 +8,13 @@
             placeholder="What are you thinking about?"
             maxlength="255"
             required
+            autofocus
         >
         </textarea>
 
         <hr class="my-4">
 
-        <footer class="flex justify-between">
+        <footer class="flex justify-between items-center">
             <img
                 src="{{ currentUser()->avatar }}"
                 alt="This is you"
@@ -24,7 +25,7 @@
 
             <button
                 type="submit"
-                class="bg-green-500 rounded-lg shadow py-2 px-6 text-white"
+                class="bg-green-500 hover:bg-green-600 rounded-lg shadow px-10 text-sm py-2 px-6 text-white"
             >
                 Chirp
             </button>

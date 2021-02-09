@@ -4,4 +4,6 @@
     @empty
         <p class="p-4 text-center text-gray-500">No chirps yet.</p>
     @endforelse
+
+    {{ $chirps->links() }}
 </div>
