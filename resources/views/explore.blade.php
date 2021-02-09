@@ -12,7 +12,8 @@
                         >
 
                         <div>
-                            <h4 class="font-thin">{{ '@'.$user->username }}</h4>
+                            <h3 class="font-bold">{{ $user->name }}</h3>
+                            <h5 class="font-thin text-sm">{{ '@'.$user->username }}</h5>
                         </div>
                     </div>
                 </a>
