@@ -9,6 +9,10 @@ class FollowsController extends Controller
 {
     public function store(User $user)
     {
+        if (currentUser()->id === $user->id) {
+            abort(400, "You can not follow yourself.");
+        }
+
         auth()
             ->user()
             ->toggleFollow($user);
