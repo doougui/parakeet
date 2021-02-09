@@ -18,8 +18,10 @@
             </a>
         </h5>
 
-        <p class="text-sm">
+        <p class="text-sm mb-3">
             {{ $chirp->body }}
         </p>
+
+        <x-like-buttons :chirp="$chirp" />
     </div>
 </div>

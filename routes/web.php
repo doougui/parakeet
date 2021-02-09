@@ -23,6 +23,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/chirps', 'ChirpsController@index')->name('home');
     Route::post('/chirps', 'ChirpsController@store')->name('chirps.store');
 
+    Route::post('/chirps/{chirp}/like', 'ChirpLikesController@store')->name('chirplikes.store');
+    Route::delete('/chirps/{chirp}/like', 'ChirpLikesController@destroy')->name('chirplikes.destroy');
+
     Route::post('/follow/{user:username}', 'FollowsController@store')->name('follow');
 
     Route::get('/profile/edit', 'ProfilesController@edit')->name('profile.edit');

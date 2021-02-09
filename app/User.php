@@ -63,8 +63,14 @@ class User extends Authenticatable
 
         return Chirp::whereIn('user_id', $following)
             ->orWhere('user_id', $this->id)
+            ->withLikes()
             ->latest()
             ->paginate(5);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function path()
