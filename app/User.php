@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -40,10 +41,12 @@ class User extends Authenticatable
 
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] =
-            (Hash::needsRehash($value))
-            ? Hash::make($value)
-            : $value;
+        if (Str::length($value) !== 0) {
+            $this->attributes['password'] =
+                (Hash::needsRehash($value))
+                ? Hash::make($value)
+                : $value;
+        }
     }
 
     public function getAvatarAttribute($value)
