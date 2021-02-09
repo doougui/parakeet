@@ -9,7 +9,7 @@
 
                     <div class="mb-6">
                         <label for="username"
-                               class="block mb-2 uppercase font-bold text-xs text-gray-700  @error('username') invalid-feedback @enderror">
+                               class="block mb-2 uppercase font-bold text-xs  @error('username') text-red-500 @else text-gray-700 @enderror">
                             {{ __('Username') }}
                         </label>
 
@@ -18,7 +18,7 @@
                                id="username"
                                autocomplete="username"
                                value="{{ old('username') }}"
-                               class="border border-gray-400 p-2 m-ful @error('username') invalid-feedback @enderror"
+                               class="border p-2 m-ful @error('username') border-red-400 @else border-gray-400 @enderror"
                                required
                                autofocus
                         >
@@ -30,7 +30,7 @@
 
                     <div class="mb-6">
                         <label for="password"
-                               class="block mb-2 uppercase font-bold text-xs text-gray-700 @error('password') invalid-feedback @enderror"
+                               class="block mb-2 uppercase font-bold text-xs @error('username') text-red-500 @else text-gray-700 @enderror"
                         >
                             {{ __('Password') }}
                         </label>
@@ -39,7 +39,7 @@
                                name="password"
                                id="password"
                                autocomplete="current-password"
-                               class="border border-gray-400 p-2 m-full @error('password') invalid-feedback @enderror"
+                               class="border p-2 m-full @error('password') border-red-400 @else border-gray-400 @enderror"
                                required
                         >
 
@@ -56,7 +56,7 @@
                         >
 
                         <label for="remember"
-                               class="uppercase font-bold text-xs text-gray-700">
+                               class="uppercase font-bold text-xs @error('password') text-red-700 @else text-gray-700 @enderror">
                             {{ __('Remember me') }}
                         </label>
                     </div>
