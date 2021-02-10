@@ -4,6 +4,56 @@
         @method('PATCH')
 
         <div class="mb-6">
+            <p class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                Current banner
+            </p>
+
+            <label for="banner" class="cursor-pointer" title="Click to select new banner">
+                <img src="{{ $user->banner }}" alt="Your current banner" class="mb-2">
+            </label>
+        </div>
+
+        <div class="mb-6">
+            <label for="banner"
+                   class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                New banner
+            </label>
+
+            <div class="flex">
+                <input class="border border-gray-400 p-2 w-full"
+                       type="file"
+                       name="banner"
+                       id="banner"
+                >
+            </div>
+
+            @error('banner')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
+            <label for="avatar"
+                   class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                Picture
+            </label>
+
+            <div class="flex align-items-start">
+                <input class="border border-gray-400 p-2 mr-2 w-full"
+                       type="file"
+                       name="avatar"
+                       id="avatar"
+                >
+
+                <img src="{{ $user->avatar }}" alt="Your current avatar" width="40">
+            </div>
+
+            @error('avatar')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
             <label for="name" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                 Name
             </label>
@@ -35,27 +85,6 @@
             >{{ $user->bio }}</textarea>
 
             @error('bio')
-                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-            @enderror
-        </div>
-
-        <div class="mb-6">
-            <label for="avatar"
-                   class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                Picture
-            </label>
-
-            <div class="flex">
-                <input class="border border-gray-400 p-2 w-full"
-                       type="file"
-                       name="avatar"
-                       id="avatar"
-                >
-
-                <img src="{{ $user->avatar }}" alt="Your avatar" width="40">
-            </div>
-
-            @error('avatar')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
@@ -104,6 +133,7 @@
             <input class="border border-gray-400 p-2 w-full"
                    type="password"
                    name="password"
+                   autocomplete="new-password"
                    id="password"
             >
 
