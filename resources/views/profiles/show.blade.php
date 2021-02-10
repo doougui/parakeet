@@ -29,12 +29,7 @@
         </div>
 
         <p class="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Consectetur
-            deleniti dicta eligendi, ex impedit iste iusto nesciunt perspiciatis
-            quas recusandae repudiandae tempore temporibus, voluptate? Adipisci
-            alias debitis deserunt est fugiat impedit iure iusto perspiciatis
-            possimus vero. Eligendi esse illum laboriosam nihil nobis quo saepe,
+            {{ $user->bio ?: "I'm a mysterious person and didn't provide a bio 🕵️" }}
         </p>
 
     </header>

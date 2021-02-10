@@ -9,8 +9,7 @@
             maxlength="255"
             required
             autofocus
-        >
-        </textarea>
+        ></textarea>
 
         <hr class="my-4">
 

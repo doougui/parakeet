@@ -22,6 +22,24 @@
         </div>
 
         <div class="mb-6">
+            <label for="bio" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                Who am I
+            </label>
+
+            <textarea
+                name="bio"
+                id="bio"
+                cols="30"
+                rows="3"
+                class="border border-gray-400 p-2 w-full"
+            >{{ $user->bio }}</textarea>
+
+            @error('bio')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
             <label for="avatar"
                    class="block mb-2 uppercase font-bold text-xs text-gray-700">
                 Picture

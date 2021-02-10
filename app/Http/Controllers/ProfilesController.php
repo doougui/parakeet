@@ -28,6 +28,7 @@ class ProfilesController extends Controller
     {
         $validated = request()->validate([
             'name' => ['string', 'required', 'max:255'],
+            'bio' => ['nullable', 'string', 'max:160'],
             'avatar' => ['file'],
             'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
             'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore($user)],
