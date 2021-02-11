@@ -81,6 +81,19 @@ class User extends Authenticatable
         return $this->hasMany(Like::class);
     }
 
+    public function liked(Chirp $chirp, $isLike = true)
+    {
+        return $this->likes
+            ->where('chirp_id', $chirp->id)
+            ->where('liked', $isLike)
+            ->count();
+    }
+
+    public function disliked(Chirp $chirp)
+    {
+        $this->liked($chirp, false);
+    }
+
     public function path()
     {
         return route('profile', $this->username);

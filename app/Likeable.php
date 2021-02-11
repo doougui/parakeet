@@ -21,10 +21,21 @@ trait Likeable
         return $this->hasMany(Like::class);
     }
 
+    public function unlike(User $user)
+    {
+        return $this->likes()->where('user_id', $user->id)->delete();
+    }
+
     public function like($user = null, $liked = true)
     {
-        $this->likes()->updateOrCreate([
-            'user_id' => $user ? $user->id : auth()->id(),
+        $user = $user ?? auth()->user();
+
+        if ($user->liked($this, $liked)) {
+            return $this->unlike($user);
+        }
+
+        return $this->likes()->updateOrCreate([
+            'user_id' => $user->id,
         ], [
             'liked' => $liked,
         ]);

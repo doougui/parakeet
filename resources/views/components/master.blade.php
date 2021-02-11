@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <!-- TurboLinks -->
+    <script src="http://unpkg.com/turbolinks"></script>
 </head>
 <body>
     <div id="app">
@@ -36,7 +39,5 @@
 
         {{ $slot }}
     </div>
-
-    <script src="http://unpkg.com/turbolinks"></script>
 </body>
 </html>

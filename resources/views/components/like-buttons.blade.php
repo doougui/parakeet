@@ -2,7 +2,7 @@
     <form action="{{ route('chirplikes.store', $chirp) }}" method="POST">
         @csrf
 
-        <div
+        <button type="submit"
             class="flex items-center mr-4 {{ $chirp->isLikedBy(currentUser()) ? 'text-green-500' : 'text-gray-500' }}">
             <svg viewBox="0 0 20 20" class="mr-1 w-3">
                 <g id="Page-1" stroke="none" stroke-width="1"
@@ -15,17 +15,17 @@
                 </g>
             </svg>
 
-            <button type="submit" class="text-xs">
+            <span class="text-xs">
                 {{ $chirp->likes ?: 0}}
-            </button>
-        </div>
+            </span>
+        </button>
     </form>
 
     <form method="POST" action="{{ route('chirplikes.destroy', $chirp) }}">
         @csrf
         @method('delete')
 
-        <div
+        <button type="submit"
             class="flex items-center {{ $chirp->isDislikedBy(currentUser()) ? 'text-green-500' : 'text-gray-500' }}">
             <svg viewBox="0 0 20 20" class="mr-1 w-3">
                 <g id="Page-1" stroke="none" stroke-width="1"
@@ -38,9 +38,9 @@
                 </g>
             </svg>
 
-            <button type="submit" class="text-xs">
+            <span class="text-xs">
                 {{ $chirp->dislikes ?: 0}}
-            </button>
-        </div>
+            </span>
+        </button>
     </form>
 </div>
