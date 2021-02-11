@@ -21,19 +21,16 @@ e depois:
 composer install
 ```
 
-É importante notar que é necessário que você tenha algum servidor capaz de executar scripts `php`. Você pode usar o `XAMPP`, `WAMP`, `LAMP`, `MAMP` ou qualquer outro do mesmo gênero.
+É importante notar que é necessário que você tenha algum servidor capaz de executar scripts `php` e que torne possível o acesso a um banco de dados relacional (recomendado: `mysql` ou `mariadb`). Você pode usar o `XAMPP`, `WAMP`, `LAMP`, `MAMP` ou qualquer outro do mesmo gênero.
 
 ## :on: Inicialização do projeto (ambiente de desenvolvimento)
 
-Na raiz do projeto, digite o seguinte comando:
+### Ambiente
 
-```
-php artisan serve
-```
+Para configurar as variáveis para o seu ambiente local, crie uma cópia do arquivo `.env.example` e cole como `.env` na raiz do projeto. 
+Preencha este arquivo com as informações correspondentes com o seu ambiente local. No campo `DB_DATABASE`, é importante notar que você deve criar o banco de dados com o mesmo nome do valor preenchido por você nesta variável.  
 
-A partir disto você poderá acessar seu projeto em: `http://localhost:8000/`
-
-### Database
+### Migrações e seeding
 
 Para executar as migrações do banco de dados, execute o seguinte comando para criar as tabelas necessárias no seu banco de dados local:
 
@@ -46,6 +43,16 @@ Em seguida, execute o seguinte comando para popular sua tabela com dados fíctic
 ```
 php artisan db:seed
 ```
+
+### Servidor local
+
+Na raiz do projeto, digite o seguinte comando:
+
+```
+php artisan serve
+```
+
+A partir disto você poderá acessar seu projeto em: `http://localhost:8000/`
 
 ## :ballot_box_with_check: Exercícios propostos
 
