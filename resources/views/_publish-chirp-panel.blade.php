@@ -22,17 +22,6 @@
                 height="40"
             >
 
-            @if(session('status'))
-                <div
-                    class="alert
-                        @if(session('success')) text-green-500 @endif
-                        @if(session('error')) text-red-500 @endif
-                    "
-                >
-                    {{ session('status') }}
-                </div>
-            @endif
-
             <button
                 type="submit"
                 class="bg-green-500 hover:bg-green-600 rounded-lg shadow px-10 text-sm py-2 px-6 text-white"
@@ -41,6 +30,20 @@
             </button>
         </footer>
     </form>
+
+    @if(session('status'))
+        <div
+            id="chirp-status"
+            class="text-white"
+            data-bg="
+                @if(session('success')) bg-green-500
+                @elseif(session('error')) bg-red-500
+                @endif
+            "
+        >
+            {{ session('status') }}
+        </div>
+    @endif
 
     @error('body')
         <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
