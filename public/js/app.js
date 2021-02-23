@@ -537,7 +537,7 @@ function initToastify() {
     var toastType = chirpStatusElement.getAttribute('data-bg').trim();
     toastify_js__WEBPACK_IMPORTED_MODULE_0___default()({
       text: chirpStatusElement.textContent,
-      duration: 10000000,
+      duration: 3000,
       close: true,
       gravity: "bottom",
       position: 'right',

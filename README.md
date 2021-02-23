@@ -59,8 +59,8 @@ A partir disto você poderá acessar seu projeto em: `http://localhost:8000/`
 Extras:
   - The profile page banner image and description are hard-coded. Make these dynamic for each user. :heavy_check_mark:
   - There is currently no way to unlike a tweet. Add the ability to toggle a like. :heavy_check_mark:
+  - Add a pop-up flash message when a user publishes a tweet or follows someone. :heavy_check_mark:
   - Add the ability to attach an image when publishing a tweet.
-  - Add a pop-up flash message when a user publishes a tweet or follows someone.
   - Consider adding [Laravel Livewire](https://laravel-livewire.com) to allow for more interactive forms.
   - When writing a new tweet, display the number of remaining characters they're allowed.
   - Allow tweets to be deleted.

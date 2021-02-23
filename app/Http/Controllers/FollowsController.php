@@ -3,20 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 
 class FollowsController extends Controller
 {
     public function store(User $user)
     {
+        $status = [
+            'state' => 'success',
+            'message' => 'Toggled follow successfully.'
+        ];
+
         if (currentUser()->id === $user->id) {
-            abort(400, "You cam't follow yourself.");
+            $status = [
+                'state' => 'error',
+                'message' => "You cam't follow yourself"
+            ];
+
+            return redirect()
+                ->route('profile', $user)
+                ->with($status['state'], true)
+                ->with('status', $status['message']);
         }
 
         auth()
             ->user()
             ->toggleFollow($user);
 
-        return back();
+        return back()
+            ->with($status['state'], true)
+            ->with('status', $status['message']);
     }
 }

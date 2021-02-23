@@ -39,6 +39,20 @@
         </section>
 
         {{ $slot }}
+
+        @if(session('status'))
+            <div
+                id="chirp-status"
+                class="text-white"
+                data-bg="
+                    @if(session('success')) bg-green-500
+                    @elseif(session('error')) bg-red-500
+                    @endif
+                "
+            >
+                {{ session('status') }}
+            </div>
+        @endif
     </div>
 </body>
 </html>
