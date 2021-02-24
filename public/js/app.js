@@ -534,28 +534,32 @@ function initCharacterCounter() {
   var container = document.querySelector('[data-textarea="container"]');
 
   if (container) {
+    var updateColor = function updateColor(el, toAdd) {
+      var toRemove = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+      toRemove.forEach(function (className) {
+        el.classList.remove(className);
+      });
+      el.classList.add(toAdd);
+    };
+
+    var updateLengthElementColor = function updateLengthElementColor(element, length) {
+      if (length <= 15) {
+        return updateColor(element, 'text-red-500', ['text-gray-500', 'text-yellow-500']);
+      }
+
+      if (length <= 50) {
+        return updateColor(element, 'text-yellow-500', ['text-gray-500', 'text-red-500']);
+      }
+
+      return updateColor(element, 'text-gray-500', ['text-red-500', 'text-yellow-500']);
+    };
+
     var updateLengthCount = function updateLengthCount() {
       var currentLength = parseInt(textarea.value.length);
       var maxLength = parseInt(textarea.getAttribute('maxlength'));
       var newLength = maxLength - currentLength;
       lengthEl.textContent = newLength;
-
-      if (newLength <= 50) {
-        lengthEl.classList.remove('text-gray-500');
-
-        if (newLength <= 15) {
-          lengthEl.classList.remove('text-yellow-500');
-          lengthEl.classList.add('text-red-500');
-          return;
-        }
-
-        lengthEl.classList.add('text-yellow-500');
-        return;
-      }
-
-      lengthEl.classList.add('text-gray-500');
-      lengthEl.classList.remove('text-red-500');
-      lengthEl.classList.remove('text-yellow-500');
+      updateLengthElementColor(lengthEl, newLength);
     };
 
     var textarea = container.querySelector('[data-textarea="chirp"]');

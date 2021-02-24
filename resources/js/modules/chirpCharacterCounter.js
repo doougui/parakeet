@@ -5,6 +5,25 @@ export default function initCharacterCounter() {
     const textarea = container.querySelector('[data-textarea="chirp"]');
     const lengthEl = container.querySelector('[data-textarea="length"]');
 
+    function updateColor(el, toAdd, toRemove = []) {
+      toRemove.forEach(className => {
+        el.classList.remove(className);
+      });
+      el.classList.add(toAdd);
+    }
+
+    function updateLengthElementColor(element, length) {
+      if (length <= 15) {
+        return updateColor(element, 'text-red-500', ['text-gray-500', 'text-yellow-500']);
+      }
+
+      if (length <= 50) {
+        return updateColor(element, 'text-yellow-500', ['text-gray-500', 'text-red-500']);
+      }
+
+      return updateColor(element, 'text-gray-500', ['text-red-500', 'text-yellow-500']);
+    }
+
     function updateLengthCount() {
       const currentLength = parseInt(textarea.value.length);
       const maxLength = parseInt(textarea.getAttribute('maxlength'));
@@ -13,22 +32,7 @@ export default function initCharacterCounter() {
 
       lengthEl.textContent = newLength;
 
-      if (newLength <= 50) {
-        lengthEl.classList.remove('text-gray-500');
-
-        if (newLength <= 15) {
-          lengthEl.classList.remove('text-yellow-500');
-          lengthEl.classList.add('text-red-500');
-          return;
-        }
-
-        lengthEl.classList.add('text-yellow-500');
-        return;
-      }
-
-      lengthEl.classList.add('text-gray-500');
-      lengthEl.classList.remove('text-red-500');
-      lengthEl.classList.remove('text-yellow-500');
+      updateLengthElementColor(lengthEl, newLength);
     }
 
     textarea.addEventListener('input', updateLengthCount);
