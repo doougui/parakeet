@@ -18,16 +18,11 @@ class FollowsController extends Controller
                 'state' => 'error',
                 'message' => "You cam't follow yourself"
             ];
-
-            return redirect()
-                ->route('profile', $user)
-                ->with($status['state'], true)
-                ->with('status', $status['message']);
+        } else {
+            auth()
+                ->user()
+                ->toggleFollow($user);
         }
-
-        auth()
-            ->user()
-            ->toggleFollow($user);
 
         return back()
             ->with($status['state'], true)

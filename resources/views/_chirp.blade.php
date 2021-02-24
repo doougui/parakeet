@@ -26,7 +26,14 @@
             <x-like-buttons :chirp="$chirp" />
 
             @can('delete', $chirp)
-                <a href="#" class="text-red-500 text-xs">Delete</a>
+                <form method="POST" action="{{ route('chirps.delete', $chirp) }}">
+                    @csrf
+                    @method('delete')
+
+                    <button type="submit" class="text-red-500 text-xs">
+                        Delete
+                    </button>
+                </form>
             @endcan
         </div>
     </div>

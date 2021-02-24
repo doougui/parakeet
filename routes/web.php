@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/chirps', 'ChirpsController@index')->name('home');
     Route::post('/chirps', 'ChirpsController@store')->name('chirps.store');
+    Route::delete('/chirps/{chirp}', 'ChirpsController@destroy')->name('chirps.delete');
 
     Route::post('/chirps/{chirp}/like', 'ChirpLikesController@store')->name('chirplikes.store');
     Route::delete('/chirps/{chirp}/like', 'ChirpLikesController@destroy')->name('chirplikes.destroy');

@@ -46,4 +46,26 @@ class ChirpsController extends Controller
             ->with($status['state'], true)
             ->with('status', $status['message']);
     }
+
+    public function destroy(Chirp $chirp)
+    {
+        $status = [
+            'state' => 'success',
+            'message' => 'Chirp deleted successfully.'
+        ];
+
+        if (request()->user()->cannot('delete', $chirp)) {
+            $status = [
+                'state' => 'error',
+                'message' => "You aren't authorized to delete this specific chirp."
+            ];
+        } else {
+            Chirp::destroy($chirp->id);
+        }
+
+        return redirect()
+            ->back()
+            ->with($status['state'], true)
+            ->with('status', $status['message']);
+    }
 }
