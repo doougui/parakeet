@@ -11,7 +11,7 @@
         </a>
     </div>
 
-    <div>
+    <div class="w-full">
         <h5 class="font-bold mb-4">
             <a href="{{ $chirp->user->path() }}">
                 {{ $chirp->user->name }}
@@ -22,6 +22,12 @@
             {{ $chirp->body }}
         </p>
 
-        <x-like-buttons :chirp="$chirp" />
+        <div class="flex justify-between w-full">
+            <x-like-buttons :chirp="$chirp" />
+
+            @can('delete', $chirp)
+                <a href="#" class="text-red-500 text-xs">Delete</a>
+            @endcan
+        </div>
     </div>
 </div>
