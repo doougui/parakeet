@@ -61,9 +61,9 @@ Extras:
   - There is currently no way to unlike a tweet. Add the ability to toggle a like. :heavy_check_mark:
   - Add a pop-up flash message when a user publishes a tweet or follows someone. :heavy_check_mark:
   - Allow tweets to be deleted. :heavy_check_mark:
+  - When writing a new tweet, display the number of remaining characters they're allowed. :heavy_check_mark:
   - Add the ability to attach an image when publishing a tweet.
   - Consider adding [Laravel Livewire](https://laravel-livewire.com) to allow for more interactive forms.
-  - When writing a new tweet, display the number of remaining characters they're allowed.
   - Add support for mentions and notifications.
   - Work on responsiveness.
 

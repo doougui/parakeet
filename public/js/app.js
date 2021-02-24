@@ -512,8 +512,57 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_toastify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/toastify */ "./resources/js/modules/toastify.js");
+/* harmony import */ var _modules_chirpCharacterCounter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/chirpCharacterCounter */ "./resources/js/modules/chirpCharacterCounter.js");
+
 
 Object(_modules_toastify__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_modules_chirpCharacterCounter__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+/***/ }),
+
+/***/ "./resources/js/modules/chirpCharacterCounter.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/modules/chirpCharacterCounter.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return initCharacterCounter; });
+function initCharacterCounter() {
+  var container = document.querySelector('[data-textarea="container"]');
+
+  if (container) {
+    var updateLengthCount = function updateLengthCount() {
+      var currentLength = parseInt(textarea.value.length);
+      var maxLength = parseInt(textarea.getAttribute('maxlength'));
+      var newLength = maxLength - currentLength;
+      lengthEl.textContent = newLength;
+
+      if (newLength <= 50) {
+        lengthEl.classList.remove('text-gray-500');
+
+        if (newLength <= 15) {
+          lengthEl.classList.remove('text-yellow-500');
+          lengthEl.classList.add('text-red-500');
+          return;
+        }
+
+        lengthEl.classList.add('text-yellow-500');
+        return;
+      }
+
+      lengthEl.classList.add('text-gray-500');
+      lengthEl.classList.remove('text-red-500');
+      lengthEl.classList.remove('text-yellow-500');
+    };
+
+    var textarea = container.querySelector('[data-textarea="chirp"]');
+    var lengthEl = container.querySelector('[data-textarea="length"]');
+    textarea.addEventListener('input', updateLengthCount);
+  }
+}
 
 /***/ }),
 

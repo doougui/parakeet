@@ -1,4 +1,4 @@
-<div class="border border-green-400 rounded-lg px-8 py-6 mb-8">
+<div class="border border-green-400 rounded-lg px-8 py-6 mb-8" data-textarea="container">
     <form method="POST" action="{{ route('chirps.store') }}">
         @csrf
 
@@ -7,6 +7,7 @@
             class="w-full outline-none"
             placeholder="What are you thinking about?"
             maxlength="255"
+            data-textarea="chirp"
             required
             autofocus
         ></textarea>
@@ -22,12 +23,15 @@
                 height="40"
             >
 
-            <button
-                type="submit"
-                class="bg-green-500 hover:bg-green-600 rounded-lg shadow px-10 text-sm py-2 px-6 text-white"
-            >
-                Chirp
-            </button>
+            <div class="flex items-center">
+                <p class="text-xs mr-3 text-gray-500" data-textarea="length">255</p>
+                <button
+                    type="submit"
+                    class="bg-green-500 hover:bg-green-600 rounded-lg shadow px-10 text-sm py-2 px-6 text-white"
+                >
+                    Chirp
+                </button>
+            </div>
         </footer>
     </form>
 
