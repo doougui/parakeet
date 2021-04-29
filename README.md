@@ -2,10 +2,6 @@
   Parakeet
 </h1>
 
-<h3 align="center">
-  Projeto desenvolvido durante o curso <a href="https://laracasts.com/series/laravel-6-from-scratch" target="_blank">"Laravel from Scratch" (Laracasts)</a>. No curso, foi desenvolvida a base da aplicação, que então estou aprimorando constantemente para aprender cada vez mais sobre o <a href="https://laravel.com/" target="_blank">framework Laravel</a>.
-</h3> 
-
 ## :rocket: Instalação
 
 :bulb: Para instalar os pacotes, você precisará ter o [NPM](https://www.npmjs.com/) e o [Composer](https://getcomposer.org/) instalados em sua máquina.
