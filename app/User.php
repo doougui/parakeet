@@ -73,7 +73,7 @@ class User extends Authenticatable
             ->orWhere('user_id', $this->id)
             ->withLikes()
             ->latest()
-            ->paginate(5);
+            ->paginate(10);
     }
 
     public function likes()

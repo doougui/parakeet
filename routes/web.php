@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return redirect()->route('home');
-    });
+    Route::redirect('/', '/chirps');
 
     Route::get('/chirps', 'ChirpsController@index')->name('home');
     Route::post('/chirps', 'ChirpsController@store')->name('chirps.store');

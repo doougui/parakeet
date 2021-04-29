@@ -2,67 +2,55 @@
   Parakeet
 </h1>
 
-## :rocket: Instalação
+## :rocket: Setup
 
-:bulb: Para instalar os pacotes, você precisará ter o [NPM](https://www.npmjs.com/) e o [Composer](https://getcomposer.org/) instalados em sua máquina.
+:bulb: To install the required dependencies, you'll need to have [NPM](https://www.npmjs.com/) and [Composer](https://getcomposer.org/) installed in your machine.
 
-Para instalar as dependências do projeto, acesse a pasta localizada na raiz do projeto utilizando o Terminal/CMD e digite o seguinte comando:
+To install project dependencies, acesse a pasta localizada na raiz do projeto utilizando o Terminal/CMD e digite o seguinte comando:
+To install project dependencies, enter the root folder of your project using the Terminal/CMD and type the following command:
  
 ```
 npm install
 ``` 
 
-e depois:
+and then:
 ```
 composer install
 ```
 
-É importante notar que é necessário que você tenha algum servidor capaz de executar scripts `php` e que torne possível o acesso a um banco de dados relacional (recomendado: `mysql` ou `mariadb`). Você pode usar o `XAMPP`, `WAMP`, `LAMP`, `MAMP` ou qualquer outro do mesmo gênero.
+It's important to notice that it's necessary that you have some server capable of executing `php` scripts and accessing relational databases (`mysql` or `mariadb` are the recommended ones for this project). You can use `XAMPP`, `WAMP`, `LAMP`, `MAMP` or any other server of your choice.
 
-## :on: Inicialização do projeto (ambiente de desenvolvimento)
+## :on: Initializing the project (dev environment)
 
-### Ambiente
+### Environment
 
-Para configurar as variáveis para o seu ambiente local, crie uma cópia do arquivo `.env.example` e cole como `.env` na raiz do projeto. 
-Preencha este arquivo com as informações correspondentes com o seu ambiente local. No campo `DB_DATABASE`, é importante notar que você deve criar o banco de dados com o mesmo nome do valor preenchido por você nesta variável.  
+To adjust the correct variables for your local environment, create a copy of the file `.env.example` and paste as `.env` inside the project root. 
+Fill this file with the corresponding information concerning your local environment. In the field `DB_DATABASE`, it's important to notice that you must create a database with the same name of the value filled by you in this variable.
 
-### Migrações e seeding
+### Migrations and seeding
 
-Para executar as migrações do banco de dados, execute o seguinte comando para criar as tabelas necessárias no seu banco de dados local:
+To execute the database migrations, run the following command to create the required tables in your local database:
 
 ```
 php artisan migrate 
 ```
 
-Em seguida, execute o seguinte comando para popular sua tabela com dados fícticios:
+After that, run the following command to populate your table with fake data:
 
 ```
 php artisan db:seed
 ```
 
-### Servidor local
+### Local server
 
-Na raiz do projeto, digite o seguinte comando:
+Inside the project root, type the following command:
 
 ```
 php artisan serve
 ```
 
-A partir disto você poderá acessar seu projeto em: `http://localhost:8000/`
+After that you will be able to access your project in: `http://localhost:8000/`
 
-## :ballot_box_with_check: Exercícios propostos
+## :mailbox_with_mail: License
 
-Extras:
-  - The profile page banner image and description are hard-coded. Make these dynamic for each user. :heavy_check_mark:
-  - There is currently no way to unlike a tweet. Add the ability to toggle a like. :heavy_check_mark:
-  - Add a pop-up flash message when a user publishes a tweet or follows someone. :heavy_check_mark:
-  - Allow tweets to be deleted. :heavy_check_mark:
-  - When writing a new tweet, display the number of remaining characters they're allowed. :heavy_check_mark:
-  - Add the ability to attach an image when publishing a tweet.
-  - Consider adding [Laravel Livewire](https://laravel-livewire.com) to allow for more interactive forms.
-  - Add support for mentions and notifications.
-  - Work on responsiveness.
-
-## :mailbox_with_mail: Licença
-
-Sinta-se livre para usar e testar. Quanto mais pessoas contribuírem, melhor!
+Feel free to use, test and collaborate. The more contributors, the better.
