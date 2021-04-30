@@ -11,7 +11,7 @@ class ChirpSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Chirp::class, 5)->create(['user_id' => 1]);
+        factory(App\Chirp::class, 5)->create(['user_id' => (config('app.env') === 'production') ? 4 : 1 ]);
         factory(App\Chirp::class, 3)->create();
     }
 }
