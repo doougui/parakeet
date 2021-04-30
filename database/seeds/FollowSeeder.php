@@ -12,10 +12,10 @@ class FollowSeeder extends Seeder
      */
     public function run()
     {
-        $primaryUser = User::find(1);
+        $primaryUser = User::first();
 
-        $firstFollow = User::find(2);
-        $secondFollow = User::find(3);
+        $firstFollow = User::skip(1)->first();
+        $secondFollow = User::skip(2)->first();
 
         $primaryUser->follow($firstFollow);
         $primaryUser->follow($secondFollow);
