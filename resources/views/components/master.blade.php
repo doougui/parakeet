@@ -21,7 +21,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <!-- TurboLinks -->
-    <script src="http://unpkg.com/turbolinks"></script>
+    <script src="https://unpkg.com/turbolinks"></script>
 </head>
 <body>
     <div id="app">
