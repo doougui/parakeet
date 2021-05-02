@@ -46,15 +46,17 @@ trait Likeable
         return $this->like($user, false);
     }
 
-    public function isLikedBy(User $user, $liked = true)
+    public function isLikedBy(?User $user, $liked = true)
     {
+        if (! $user) return false;
+
         return (bool) $user->likes
             ->where('chirp_id', $this->id)
             ->where('liked', $liked)
             ->count();
     }
 
-    public function isDislikedBy(User $user)
+    public function isDislikedBy(?User $user)
     {
         return $this->isLikedBy($user, false);
     }
