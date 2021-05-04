@@ -6,7 +6,6 @@
 
 :bulb: To install the required dependencies, you'll need to have [NPM](https://www.npmjs.com/) and [Composer](https://getcomposer.org/) installed in your machine.
 
-To install project dependencies, acesse a pasta localizada na raiz do projeto utilizando o Terminal/CMD e digite o seguinte comando:
 To install project dependencies, enter the root folder of your project using the Terminal/CMD and type the following command:
  
 ```
