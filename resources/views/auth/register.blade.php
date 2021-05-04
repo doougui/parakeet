@@ -109,8 +109,10 @@
                         <button type="submit"
                                 class="bg-green-400 text-white rounded py-2 px-4 hover:bg-green-500 mr-2"
                         >
-                            {{ __('Submit') }}
+                            {{ __('Register') }}
                         </button>
+
+                        <a href="{{ route('login') }}" class="text-xs text-gray-700">{{ __('Login') }}</a>
                     </div>
                 </form>
             </div>
