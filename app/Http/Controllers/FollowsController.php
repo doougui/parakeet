@@ -16,7 +16,7 @@ class FollowsController extends Controller
         if (currentUser()->id === $user->id) {
             $status = [
                 'state' => 'error',
-                'message' => "You cam't follow yourself"
+                'message' => "You can't follow yourself"
             ];
         } else {
             auth()
